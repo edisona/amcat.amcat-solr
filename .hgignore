@@ -1,9 +1,6 @@
 syntax: glob
-*.jar
-*.war
 */lib/**
 */data/**
 */bin/**
-webapps/**
 work/**
 
