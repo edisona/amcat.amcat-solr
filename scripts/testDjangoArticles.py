@@ -1,1 +1,0 @@
-from amcat.model import articlefor a in article.Article.objects.all()[:20]:    print a.headline#export DJANGO_SETTINGS_MODULE='navigator.amcatnavigator.settings'
