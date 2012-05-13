@@ -210,7 +210,7 @@
     </fieldType>
 
     <!-- Main text field. Only this text field is used -->
-    <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
+    <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100" omitNorms="true" stored="false" indexed="false">
       <analyzer>
         <charFilter class="solr.MappingCharFilterFactory" mapping="mapping.txt"/> <!-- keep # and @ -->
         <tokenizer class="solr.StandardTokenizerFactory"/> <!-- strips many extraneous characters and splits on word boundary rules from Unicode standard annex UAX#29-->

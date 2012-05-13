@@ -14,8 +14,14 @@
 # limitations under the License.
 
 
-"Solr Home" Directory
+Example "Solr Home" Directory
 =============================
+
+This directory is provided as an example of what a "Solr Home" directory
+should look like.
+
+It's not strictly necessary that you copy all of the files in this
+directory when setting up a new instance of Solr, but it is recommended.
 
 
 Basic Directory Structure
