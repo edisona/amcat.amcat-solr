@@ -105,7 +105,7 @@
        persistent, and doesn't work with replication.
     -->
   <directoryFactory name="DirectoryFactory" 
-                    class="${solr.directoryFactory:solr.StandardDirectoryFactory}"/>
+                    class="org.apache.solr.core.SimpleFSDirectoryFactory"/>
 
 
   <!-- Index Defaults
