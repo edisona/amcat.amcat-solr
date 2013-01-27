@@ -361,6 +361,7 @@
    
    <field name="body" type="text_general" indexed="true" stored="true" compressed="true" />
    <field name="headline" type="text_general" indexed="true" stored="true" compressed="true" />
+   <field name="author" type="text_general" indexed="true" stored="false"  />
    <field name="byline" type="text_general" indexed="true" stored="false" />
    
    <!-- container that gets the text of the body, headline and byline, to improve search performance, as it only needs to be performed on one field. See copyField below -->
@@ -440,6 +441,7 @@
         or to add multiple fields to the same field for easier/faster searching.  -->
 
    <copyField source="headline" dest="text"/>
+   <copyField source="author" dest="text"/>
    <copyField source="byline" dest="text"/>
    <copyField source="body" dest="text"/>
 	
