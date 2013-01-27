@@ -441,6 +441,7 @@
         or to add multiple fields to the same field for easier/faster searching.  -->
 
    <copyField source="headline" dest="text"/>
+   <copyField source="author" dest="text"/>
    <copyField source="byline" dest="text"/>
    <copyField source="body" dest="text"/>
 	
