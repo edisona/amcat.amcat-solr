@@ -141,7 +141,7 @@
     <!-- maxFieldLength specifies max number of *tokens* indexed per field. Default: 10000 -->
     <!-- <maxFieldLength>10000</maxFieldLength>  -->
     <!-- Maximum time to wait for a write lock (ms) for an IndexWriter. Default: 1000 -->
-    <!-- <writeLockTimeout>1000</writeLockTimeout>  -->
+    <writeLockTimeout>3000</writeLockTimeout> 
 
     <!-- Expert: Enabling compound file will use less files for the index, 
          using fewer file descriptors on the expense of performance decrease. 
