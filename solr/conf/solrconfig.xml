@@ -111,7 +111,7 @@
        replication is in use, this should match the replication
        configuration.
     -->
-  <dataDir>${solr.data.dir:}</dataDir>
+  <dataDir>/data/solr</dataDir>
 
 
   <!-- The DirectoryFactory to use for indexes.
@@ -414,7 +414,7 @@
          be based on the last SolrCore to be initialized.
          
       -->
-    <maxBooleanClauses>10000</maxBooleanClauses>
+    <maxBooleanClauses>20000</maxBooleanClauses>
 
 
     <!-- Solr Internal Query Caches
