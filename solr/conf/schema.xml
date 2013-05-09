@@ -369,6 +369,7 @@
    <field name="section" type="string" indexed="true" stored="false" /> <!-- since its stored as string, section needs to be stripped of useless characters before -->
    <field name="mediumid" type="int" indexed="true" stored="true" required="true" />
    <field name="projectid" type="int" indexed="true" stored="true" required="true" />
+   <field name="page" type="int" indexed="true" stored="true" />
    <field name="date" type="date" indexed="true" stored="true" />
    <field name="sets" type="int" indexed="true" stored="true" multiValued="true" /> <!-- all the sets an article occurs in -->
    
