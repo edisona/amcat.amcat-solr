@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one or more
+ contributor license agreements.  See the NOTICE file distributed with
+ this work for additional information regarding copyright ownership.
+ The ASF licenses this file to You under the Apache License, Version 2.0
+ (the "License"); you may not use this file except in compliance with
+ the License.  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.    -->
+
+<config>
+
+  <jmx/>
+
+  <dataDir>${solr.data.dir:./solr/data}</dataDir>
+
+  <indexDefaults>
+    <useCompoundFile>false</useCompoundFile>
+    <mergeFactor>10</mergeFactor>
+    <ramBufferSizeMB>32</ramBufferSizeMB>
+    <maxMergeDocs>2147483647</maxMergeDocs>
+    <maxFieldLength>10000</maxFieldLength>
+    <writeLockTimeout>1000</writeLockTimeout>
+    <commitLockTimeout>10000</commitLockTimeout>
+    <luceneAutoCommit>false</luceneAutoCommit>
+    <writeLockTimeout>1000</writeLockTimeout>
+    <commitLockTimeout>10000</commitLockTimeout>
+    <lockType>single</lockType>
+  </indexDefaults>
+
+  <mainIndex>
+    <useCompoundFile>false</useCompoundFile>
+    <mergeFactor>10</mergeFactor>
+    <maxBufferedDocs>10</maxBufferedDocs>
+    <maxMergeDocs>2147483647</maxMergeDocs>
+    <maxFieldLength>10000</maxFieldLength>
+    <unlockOnStartup>true</unlockOnStartup>
+  </mainIndex>
+
+  <query>
+    <maxBooleanClauses>1024</maxBooleanClauses>
+    <enableLazyFieldLoading>true</enableLazyFieldLoading>
+    <queryResultWindowSize>10</queryResultWindowSize>
+  </query>
+
+  <requestHandler name="standard" class="solr.StandardRequestHandler" default="true">
+    <lst name="defaults">
+      <str name="defType">complexphrase</str>
+    </lst>
+  </requestHandler>
+
+  <requestHandler name="/admin/" class="org.apache.solr.handler.admin.AdminHandlers"/>
+  <requestHandler name="test" class="solr.tst.TestRequestHandler"/>
+  <requestHandler name="/update" class="solr.XmlUpdateRequestHandler"/>
+
+
+  <highlighting>
+    <!-- Configure the standard fragmenter -->
+    <fragmenter name="gap" class="org.apache.solr.highlight.GapFragmenter" default="true">
+      <lst name="defaults">
+        <int name="hl.fragsize">100</int>
+      </lst>
+    </fragmenter>
+
+    <fragmenter name="regex" class="org.apache.solr.highlight.RegexFragmenter">
+      <lst name="defaults">
+        <int name="hl.fragsize">70</int>
+      </lst>
+    </fragmenter>
+
+    <!-- Configure the standard formatter -->
+    <formatter name="html" class="org.apache.solr.highlight.HtmlFormatter" default="true">
+      <lst name="defaults">
+        <str name="hl.simple.pre"><![CDATA[<em>]]></str>
+        <str name="hl.simple.post"><![CDATA[</em>]]></str>
+      </lst>
+    </formatter>
+  </highlighting>
+
+  <queryParser name="complexphrase" class="org.apache.solr.search.ComplexPhraseQParserPlugin"/>
+
+  <!-- Un-ordered complex phrase query parser Same behaviour as Lucene's PhraseQuery -->
+  <queryParser name="unorderedcomplexphrase" class="org.apache.solr.search.ComplexPhraseQParserPlugin">
+    <bool name="inOrder">false</bool>
+  </queryParser>
+
+</config>
